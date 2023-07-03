@@ -1,0 +1,247 @@
+Problem 1
+
+import java.util.Scanner;
+public class MinimumNumber {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        
+        System.out.print("Enter the number of elements: ");
+        int n = input.nextInt();
+        
+        int[] arr = new int[n];
+        
+        System.out.print("Enter the elements of the array: ");
+        for (int i = 0; i < n; i++) {
+            arr[i] = input.nextInt();
+        }
+        
+        int minimum = findMinimum(n, arr);
+        System.out.println("Minimum number: " + minimum);
+        
+        input.close();
+    }
+    
+    public static int findMinimum(int n, int[] arr) {
+        int min = arr[0];
+        
+        for (int i = 1; i < n; i++) {
+            if (arr[i] < min) {
+                min = arr[i];
+            }
+        }
+        
+        return min;
+    }
+}
+
+Problem 2
+public class Main {
+    public static double calculateAverage(int n, int[] arr) {
+        double sum = 0;
+
+        for (int i = 0; i < n; i++) {
+            sum += arr[i];
+        }
+
+        double average = sum / n;
+        return average;
+    }
+
+    public static void main(String[] args) {
+        int n = 4;
+        int[] arr = {3, 2, 4, 1};
+
+        double average = calculateAverage(n, arr);
+        System.out.println("Average: " + average);
+    }
+}
+
+Problem 3
+public class PrimeNumber {
+    public static boolean isPrime(int n) {
+        if (n < 2) {
+            return false;
+        }
+        for (int i = 2; i <= Math.sqrt(n); i++) {
+            if (n % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        int n = 7;
+
+        if (isPrime(n)) {
+            System.out.println("7 is a prime number");
+        }
+        n = 10;
+        if (isPrime(n)) {
+        } else {
+            System.out.println("10 is a composite number");
+        }
+    }
+}
+
+Problem 4
+public class Factorial {
+
+    public static int factorial(int n) {
+        if (n == 1) {
+            return 1;
+        } else {
+            return n * factorial(n - 1);
+        }
+    }
+
+    public static void main(String[] args) {
+        int n = 5;
+
+        int factorial = factorial(n);
+
+        System.out.println("The factorial of " + n + " is " + factorial);
+    }
+}
+
+Problem 5
+public class FibonacciSequence {
+    public static int fibonacci(int n) {
+        if (n < 0) {
+        }
+
+        if (n == 0) {
+            return 0; 
+        } else if (n == 1) {
+            return 1;
+        }
+
+        return fibonacci(n - 1) + fibonacci(n - 2);
+    }
+
+    public static void main(String[] args) {
+        int n = 5;
+        int result = fibonacci(n);
+        System.out.println("The " + n + "th element in the Fibonacci sequence is: " + result);
+
+        n = 17;
+        result = fibonacci(n);
+        System.out.println("The " + n + "th element in the Fibonacci sequence is: " + result);
+    }
+}
+Problem 6
+public class Power {
+
+    public static int power(int a, int n) {
+        if (n == 0) {
+            return 1;
+        } else {
+            return a * power(a, n - 1);
+        }
+    }
+
+    public static void main(String[] args) {
+        int a = 2;
+        int n = 10;
+
+        int powerOfA = power(a, n);
+
+        System.out.println(a + "^" + n + " = " + powerOfA);
+    }
+}
+
+Problem 7
+public class ArrayReversal {
+    public static void reverseArray(int[] arr, int start, int end) {
+        if (start >= end) {
+            return;
+        }
+
+        int temp = arr[start];
+        arr[start] = arr[end];
+        arr[end] = temp;
+
+        reverseArray(arr, start + 1, end - 1);
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {1, 4, 6, 2};
+        reverseArray(arr, 0, arr.length - 1);
+
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
+    }
+}
+
+Problem 8
+public class Main {
+    public static boolean isAllDigits(String s) {
+        if (s.isEmpty()) {
+            return false;
+        }
+        for (int i = 0; i < s.length(); i++) {
+            if (!Character.isDigit(s.charAt(i))) {
+                return false;
+            }
+        }
+        return true;
+    }
+    public static void main(String[] args) {
+        String s1 = "123456";
+        String s2 = "123a12";
+
+        if (isAllDigits(s1)) {
+            System.out.println(s1 + " Yes");
+        } else {
+            System.out.println(s1 + " No");
+        }
+
+        if (isAllDigits(s2)) {
+            System.out.println(s2 + " Yes");
+        } else {
+            System.out.println(s2 + " No");
+        }
+    }
+}
+
+Problem 9
+public class BinomialCoefficient {
+    public static int calculateBinomialCoefficient(int n, int k) {
+        if (k == 0 || k == n) {
+            return 1;
+        }
+        return calculateBinomialCoefficient(n - 1, k - 1) + calculateBinomialCoefficient(n - 1, k);
+    }
+
+    public static void main(String[] args) {
+        int n = 2;
+        int k = 1;
+        System.out.println("C(" + n + ", " + k + ") = " + calculateBinomialCoefficient(n, k));
+
+        n = 7;
+        k = 3;
+        System.out.println("C(" + n + ", " + k + ") = " + calculateBinomialCoefficient(n, k));
+    }
+}
+
+Problem 10
+public class GCD {
+    public static int calculateGCD(int a, int b) {
+        if (b == 0) {
+            return a;
+        }
+        return calculateGCD(b, a % b);
+    }
+
+    public static void main(String[] args) {
+        int a = 32;
+        int b = 48;
+        System.out.println("GCD(" + a + ", " + b + ") = " + calculateGCD(a, b));
+
+        a = 10;
+        b = 7;
+        System.out.println("GCD(" + a + ", " + b + ") = " + calculateGCD(a, b));
+    }
+}
+
